@@ -33,7 +33,7 @@ public class AccountOpenController {
 	@RequestMapping("/create-account")
 	public String showLoginScreen(@ModelAttribute Customer customer, Model model) {
 		//Call the API and pass this customer object 
-		String url ="http://localhost:8080/customer";
+		String url ="http://localhost:8282/customer";
 		RestTemplate restTemplate = new RestTemplate(); 
 		Customer c = restTemplate.postForObject(url, customer, Customer.class);
 		model.addAttribute("user", user);
@@ -52,7 +52,7 @@ public class AccountOpenController {
 		
 		//call the api
 		RestTemplate restTemplate = new RestTemplate();
-		String url="http://localhost:8080/user";
+		String url="http://localhost:8282/user";
 		
 		try {
 			ResponseEntity<UserInfo> entity = restTemplate.exchange(url, HttpMethod.GET, request, UserInfo.class);
